@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public delegate void GameEvent();
 public class GameManagerBehaviour : MonoBehaviour
 {
     [SerializeField]
     private static bool _gameOver = false;
-    public static GameEvent onGameOver;
     [SerializeField]
     private HealthBehaviour _playerHealth;
     [SerializeField]
@@ -27,8 +25,5 @@ public class GameManagerBehaviour : MonoBehaviour
     {
         _gameOver = _playerHealth.Health <= 0;
         _gameOverScreen.SetActive(_gameOver);
-        if (_gameOver)
-            onGameOver.Invoke();
-        
     }
 }
