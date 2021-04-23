@@ -1,5 +1,9 @@
 # Capsules and cubes
 - requirements mouse
+## how to load up the release version
+- unzip the folder in the release tab open teh folder and lunch the TestLightingProj.exe
+## how to load the webGL version
+lunch 
 ## how to play
 - kill or be killed survive and get number up the higher the score the better
 - move around by clicking on any part of the green surface
