@@ -3,7 +3,8 @@
 ## how to load up the release version
 - unzip the folder in the release tab open teh folder and lunch the TestLightingProj.exe
 ## how to load the webGL version
-lunch 
+paste this link below into the address bar and it should start imidiatly
+https://lucascampcode.github.io/TopDownShooter/Player/
 ## how to play
 - kill or be killed survive and get number up the higher the score the better
 - move around by clicking on any part of the green surface
