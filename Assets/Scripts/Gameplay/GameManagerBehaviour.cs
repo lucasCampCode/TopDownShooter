@@ -10,6 +10,11 @@ public class GameManagerBehaviour : MonoBehaviour
     private HealthBehaviour _playerHealth;
     [SerializeField]
     private GameObject _gameOverScreen;
+    [SerializeField]
+    private GameObject _rangedButton;
+    [SerializeField]
+    private GameObject _meleeButton;
+
     public static bool GameOver { get { return _gameOver; } }
     
     public void RestartGame()
@@ -19,6 +24,22 @@ public class GameManagerBehaviour : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+    /// <summary>
+    /// switches to melee mode
+    /// </summary>
+    public void MeleeMode()
+    {
+        _meleeButton.SetActive(false);
+        _rangedButton.SetActive(true);
+    }
+    /// <summary>
+    /// switches to range weapons
+    /// </summary>
+    public void RangedMode()
+    {
+        _meleeButton.SetActive(true);
+        _rangedButton.SetActive(false);
     }
     // Update is called once per frame
     void Update()

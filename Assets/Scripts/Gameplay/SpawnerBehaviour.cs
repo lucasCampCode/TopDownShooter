@@ -16,6 +16,8 @@ public class SpawnerBehaviour : MonoBehaviour
     [Tooltip("The enemy object's target.")]
     [SerializeField]
     private GameObject _enemyTarget;
+    [SerializeField]
+    private ClosestTargetBehaviour _targetBehaviour;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +37,8 @@ public class SpawnerBehaviour : MonoBehaviour
             GameObject spawnedEnemy = Instantiate(_spawnObject, transform.position, new Quaternion());
             //Set the enemy target to be the target the spawner was given
             spawnedEnemy.GetComponent<EnemyMovementBehaviour>().Target = _enemyTarget;
+            //add enemy to the blackboard
+            _targetBehaviour.Targets.Add(spawnedEnemy);
             //Pause for the given time in seconds before resuming the function
             yield return new WaitForSeconds(_timeBetweenSpawns);
         }
