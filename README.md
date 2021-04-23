@@ -1,7 +1,7 @@
 # Capsules and cubes
 - requirements mouse
 ## how to load up the release version
-- unzip the folder in the release tab open teh folder and lunch the TestLightingProj.exe
+- unzip the folder in the release tab open the folder and lunch the TestLightingProj.exe
 ## how to load the webGL version
 paste this link below into the address bar and it should start imidiatly
 https://lucascampcode.github.io/TopDownShooter/Player/
