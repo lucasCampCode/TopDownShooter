@@ -11,19 +11,17 @@ public class PlayerMovementBehaviour : MonoBehaviour
     [Tooltip("The current active camera. Used to get mouse position for rotation.")]
     [SerializeField]
     private Camera _camera;
-    private Rigidbody _rigidbody;
     private NavMeshAgent _agent;
     private PlayerMeleeBehaviour _meleeBehaviour;
 
     // Start is called before the first frame update
     void Start()
     {
-        //Store reference to the attached rigidbody
-        _rigidbody = GetComponent<Rigidbody>();
         //stores refrence to the attached NevMeshAgent
         _agent = GetComponent<NavMeshAgent>();
         //stores refrence to the attached PlayerMeleeBehaviour
         _meleeBehaviour = GetComponent<PlayerMeleeBehaviour>();
+        _agent.speed = _moveSpeed;
     }
 
     private void FixedUpdate()
