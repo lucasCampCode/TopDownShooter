@@ -7,9 +7,8 @@ public class SpawnerBehaviour : MonoBehaviour
     [Tooltip("The object that will be instantiated.")]
     [SerializeField]
     private GameObject _spawnObject;
-    [Tooltip("The amount of time in seconds between each spawn.")]
     [SerializeField]
-    private float _timeBetweenSpawns;
+    private SpawnManagerScriptableObject _spawnManager;
     [Tooltip("If false, the spawner will stop instantiating clones of the reference.")]
     [SerializeField]
     private bool _canSpawn;
@@ -31,16 +30,17 @@ public class SpawnerBehaviour : MonoBehaviour
     /// <returns></returns>
     public IEnumerator SpawnObjects()
     {
-        while (_canSpawn)
+        for(int i = 0; i > _spawnManager.spawnCount; i++)
         {
             //Create a new enemy in the scene
             GameObject spawnedEnemy = Instantiate(_spawnObject, transform.position, new Quaternion());
             //Set the enemy target to be the target the spawner was given
             spawnedEnemy.GetComponent<EnemyMovementBehaviour>().Target = _enemyTarget;
+            spawnedEnemy.name = spawnedEnemy.name + i;
             //add enemy to the blackboard
             _targetBehaviour.Targets.Add(spawnedEnemy);
             //Pause for the given time in seconds before resuming the function
-            yield return new WaitForSeconds(_timeBetweenSpawns);
+            yield return new WaitForSeconds(_spawnManager.timePerSpawn);
         }
     }
 }
